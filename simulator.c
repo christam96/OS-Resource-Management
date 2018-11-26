@@ -29,11 +29,13 @@ void simulator(char *filename)
 	* set the main memory value to the value read from the system file
 	**************************************************************************/
 	fscanf(fp, "%d %d %d", &memory, &mode, &quantum);
-	printf("%s %s %s \n", memory, mode, quantum);
 	fclose(fp);
 
 	d_linked_list_t *jobs = build_jobs_list(filename);
 	job_t *p;
+
+	printf("%s %s %s \n", memory, mode, quantum);
+
 
 	simulate(memory, mode, quantum, jobs);
 }
