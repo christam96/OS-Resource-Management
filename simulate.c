@@ -119,6 +119,8 @@ void simulate(int memory_value, int mode_value, int time_quantum_value,
 		}
 	}
 
+	printf("done jobs");
+
 	/**********************************************************************
 	* wait for the jobs to finish executing
 	**********************************************************************/
