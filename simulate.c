@@ -63,13 +63,13 @@ void* run(void *j)
 			enqueue(jobs, job);
 		}
 		job = get_next_job(mode, jobs);
-
+		if (job == NULL) {
+			printf("next job null\n");
+		}
 	}
-
+	//pthread_mutex_unlock(&lock);
 	return NULL;
-	printf("done\n");
 	pthread_mutex_unlock(&lock);
-	printf("done2\n");
 }
 
 /******************************************************************************
