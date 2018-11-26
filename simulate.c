@@ -120,6 +120,8 @@ void simulate(int memory_value, int mode_value, int time_quantum_value,
 	**********************************************************************/
 	for (int i = 0; i < NUMBER_OF_THREADS; ++i)
 		pthread_join(threads[i], NULL);
+
+	printf("done\n");
 }
 
 void execute_job(job_t *job) {
