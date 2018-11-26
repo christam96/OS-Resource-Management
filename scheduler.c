@@ -18,8 +18,16 @@ job_t *get_next_job(int mode, d_linked_list_t* jobs) {
 			j = (job_t*) dequeue(jobs);
 	}
 
+	// Mode 1: Last In First Out (LIFO)
 	if (mode == 1) {
-
+			j = (job_t*) pop(jobs);
 	}
+
+	// Mode 2: Shortest Job First (SJF)
+	
+
+
+
+
 	return j;
 }

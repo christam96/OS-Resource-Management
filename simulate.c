@@ -17,6 +17,8 @@ pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 
 void* run(void *j)
 {
+	// Beginning of critical region!!!
+	// Since run() calls scheduler.c for the next job and then executes the specified job (memory permitting), we must lock this entire function in order for the CPU scheduling to work in the correct order specified by mode.
 	pthread_mutex_lock(&lock);
 	job_t *job = get_next_job(mode, jobs);
 	int number, required_memory;
