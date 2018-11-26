@@ -12,14 +12,17 @@
 job_t *get_next_job(int mode, d_linked_list_t* jobs) {
 	job_t *j;
 
-	int jobNumber;
+	int jobNumber, required_mem, required_time;
 
 	if (mode == 0) {
 		printf("Then mode is FCFS\n");
 		for (int i = 0; i < 6; i++) {
-			j = (job_t*) jobs->next;
+			j = (job_t*) jobs->dequeue(jobs->head);
 			jobNumber = j->number;
-			printf("%d \n", jobNumber);
+			required_mem = j->required_memory;
+			required_time = j->required_time;
+
+			printf("%d %d %d \n", jobNumber, required_mem, required_time);
 
 		}
 	}
