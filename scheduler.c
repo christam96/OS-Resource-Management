@@ -15,6 +15,8 @@ job_t *get_next_job(int mode, d_linked_list_t* jobs) {
 	int jobNumber, required_mem, required_time;
 
 	if (mode == 0) {
+			j = (job_t*) dequeue(jobs);
+		/**
 		printf("Then mode is FCFS\n");
 		for (int i = 0; i < jobs->size; i++) {
 			j = (job_t*) dequeue(jobs);
@@ -24,9 +26,7 @@ job_t *get_next_job(int mode, d_linked_list_t* jobs) {
 
 			printf("%d %d %d \n", jobNumber, required_mem, required_time);
 		}
+		**/
 	}
-
-
-	return 0;
-	//return j;
+	return j;
 }
