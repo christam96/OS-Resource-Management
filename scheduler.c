@@ -12,16 +12,16 @@
 job_t *get_next_job(int mode, d_linked_list_t* jobs) {
 	job_t *j;
 
-	pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER;
+
 
 	int counter = 0;
 
 	// Mode 0: First Come First Serve (FCFS)
 	//
-	if (mode == 0 && finish == true) {
+	if (mode == 0) {
 
 
-			j = (job_t*) dequeue(jobs[i]);
+			j = (job_t*) dequeue(jobs[counter]);
 
 		/**
 		printf("Then mode is FCFS\n");
