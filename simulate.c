@@ -67,11 +67,8 @@ void* run(void *j)
 			enqueue(jobs, job);
 		}
 		job = get_next_job(mode, jobs);
-		if (job == NULL) {
-			printf("next job null\n");
-			break;
-		}
 	}
+
 	printf("print if get here1");
 
 	pthread_mutex_unlock(&lock);
