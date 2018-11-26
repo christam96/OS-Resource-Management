@@ -19,6 +19,7 @@ job_t *get_next_job(int mode, d_linked_list_t* jobs) {
 		for (int i = 0; i < 6; i++) {
 			printf("%s \n", jobs[i]);
 
+		}
 	}
 
 
