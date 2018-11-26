@@ -13,10 +13,11 @@ job_t *get_next_job(int mode, d_linked_list_t* jobs) {
 	job_t *j;
 
 	int jobNumber, required_mem, required_time;
-
+	/**
 	for (int i=0;i<jobs->size;i++) {
 		printf("%d \n", i);
 	}
+	**/
 
 	if (mode == 0) {
 			j = (job_t*) dequeue(jobs);
