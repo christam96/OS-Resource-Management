@@ -123,13 +123,15 @@ void simulate(int memory_value, int mode_value, int time_quantum_value,
 		}
 	}
 
-	printf("done jobs");
-
 	/**********************************************************************
 	* wait for the jobs to finish executing
 	**********************************************************************/
 	for (int i = 0; i < NUMBER_OF_THREADS; ++i)
 		pthread_join(threads[i], NULL);
+
+	printf("done jobs");
+	return NULL;
+
 }
 
 void execute_job(job_t *job) {
