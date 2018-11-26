@@ -45,7 +45,10 @@ void* run(void *j)
 		/**********************************************************************
 		* runs job
 		**********************************************************************/
-		if (required_memory <= memory) execute_job(job);
+		if (required_memory <= memory) {
+			execute_job(job);
+			printf("done\n");
+		}
 
 		/**********************************************************************
 		* checks if the memory requested exceeds current available memory
@@ -120,8 +123,6 @@ void simulate(int memory_value, int mode_value, int time_quantum_value,
 	**********************************************************************/
 	for (int i = 0; i < NUMBER_OF_THREADS; ++i)
 		pthread_join(threads[i], NULL);
-
-	printf("done\n");
 }
 
 void execute_job(job_t *job) {
