@@ -1,9 +1,9 @@
 /******************************************************************************
-* 
+*
 * Name: 	Zaid Albirawi
 * Email: 	zalbiraw@uwo.ca
 *
-* simulate.c 
+* simulate.c
 *
 ******************************************************************************/
 
@@ -45,14 +45,14 @@ void* run(void *j)
 		/**********************************************************************
 		* checks if the memory requested exceeds current available memory
 		**********************************************************************/
-		else 
+		else
 		{
 			/******************************************************************
-			* inform user that the job doesn't have enough resources at the 
+			* inform user that the job doesn't have enough resources at the
 			* moment, add the job back to the list
 			******************************************************************/
 			print_insufficient_memory(fp, number);
-			
+
 			enqueue(jobs, job);
 		}
 
@@ -64,7 +64,7 @@ void* run(void *j)
 }
 
 /******************************************************************************
-* 
+*
 ******************************************************************************/
 void simulate(int memory_value, int mode_value, int time_quantum_value,
 	d_linked_list_t *list)
@@ -94,6 +94,7 @@ void simulate(int memory_value, int mode_value, int time_quantum_value,
 	mode = mode_value;
 	time_quantum = time_quantum_value;
 	print_mode(fp, mode);
+	printf("%d %d %d \n", memory, mode, time_quantum);
 	jobs = list;
 
 	/**************************************************************************
