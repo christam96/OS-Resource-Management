@@ -12,15 +12,18 @@
 int memory, max_memory, mode, time_quantum;
 FILE *fp;
 d_linked_list_t *jobs;
+pthread_mutex_t lock;
 
 void* run(void *j)
 {
+
 	job_t *job = get_next_job(mode, jobs);
 	int number, required_memory;
+	pthread_mutex_t lock;
 
 	while (job != NULL)
 	{
-
+		pthread_mutex_lock(&lock);
 		number = job->number;
 		required_memory = job->required_memory;
 
@@ -55,7 +58,7 @@ void* run(void *j)
 
 			enqueue(jobs, job);
 		}
-
+		pthread_mutex_unlock(&lock);
 		job = get_next_job(mode, jobs);
 
 	}
