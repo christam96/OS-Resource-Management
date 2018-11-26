@@ -65,6 +65,7 @@ void* run(void *j)
 		job = get_next_job(mode, jobs);
 		if (job == NULL) {
 			printf("next job null\n");
+			break;
 		}
 	}
 	pthread_mutex_unlock(&lock);
