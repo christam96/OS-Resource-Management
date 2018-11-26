@@ -67,9 +67,9 @@ void* run(void *j)
 			printf("next job null\n");
 		}
 	}
-	//pthread_mutex_unlock(&lock);
-	return NULL;
 	pthread_mutex_unlock(&lock);
+	return NULL;
+	//pthread_mutex_unlock(&lock);
 }
 
 /******************************************************************************
