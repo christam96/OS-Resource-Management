@@ -14,16 +14,16 @@ FILE *fp;
 d_linked_list_t *jobs;
 pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 
+
 void* run(void *j)
 {
-
+	pthread_mutex_lock(&lock);
 	job_t *job = get_next_job(mode, jobs);
 	int number, required_memory;
 	pthread_mutex_t lock;
 
 	while (job != NULL)
 	{
-		pthread_mutex_lock(&lock);
 		number = job->number;
 		required_memory = job->required_memory;
 
@@ -58,12 +58,12 @@ void* run(void *j)
 
 			enqueue(jobs, job);
 		}
-		pthread_mutex_unlock(&lock);
 		job = get_next_job(mode, jobs);
 
 	}
 
 	return NULL;
+	pthread_mutex_unlock(&lock);
 }
 
 /******************************************************************************
