@@ -13,7 +13,7 @@ job_t *get_next_job(int mode, d_linked_list_t* jobs) {
 	job_t *j;
 
 	pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER;
-	bool finish = true;
+	Bool finish = true;
 
 	for (int i=0;i<jobs->size;i++) {
 		// Ensures FCFS mode dequeues jobs in correct order
