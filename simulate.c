@@ -94,7 +94,7 @@ void simulate(int memory_value, int mode_value, int time_quantum_value,
 	mode = mode_value;
 	time_quantum = time_quantum_value;
 	print_mode(fp, mode);
-	printf("%d %d %d \n", memory, mode, time_quantum);
+	printf("%d %d %d \n", memory, mode, time_quantum);	// Check to see what values memory, mode, and time_quantum are
 	jobs = list;
 
 	/**************************************************************************

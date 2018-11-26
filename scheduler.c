@@ -1,9 +1,9 @@
 /******************************************************************************
-* 
+*
 * Name: 	Zaid Albirawi
 * Email: 	zalbiraw@uwo.ca
 *
-* scheduler.c 
+* scheduler.c
 *
 ******************************************************************************/
 
@@ -11,8 +11,11 @@
 
 job_t *get_next_job(int mode, d_linked_list_t* jobs) {
 	job_t *j;
+	if (mode == 0) {
+		printf("Then mode is FCFS");
+	}
 
-	
+
 
 	return j;
 }
