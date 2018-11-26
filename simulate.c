@@ -25,6 +25,11 @@ void* run(void *j)
 	pthread_mutex_t lock;
 
 	while (job != NULL) {
+
+		if (job == NULL) {
+			printf("problem...");
+		}
+
 		number = job->number;
 		required_memory = job->required_memory;
 
