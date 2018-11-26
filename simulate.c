@@ -25,19 +25,13 @@ void* run(void *j)
 	pthread_mutex_t lock;
 
 	while (job != NULL) {
-
-		if (job == NULL) {
-			printf("problem...");
-		}
-
 		number = job->number;
 		required_memory = job->required_memory;
 
 		/**********************************************************************
 		* checks if the memory requested exceeds maximum memory
 		**********************************************************************/
-		if (required_memory > max_memory)
-		{
+		if (required_memory > max_memory) {
 			/******************************************************************
 			* inform user that the job won't run, clean and terminate
 			******************************************************************/
@@ -56,16 +50,15 @@ void* run(void *j)
 		/**********************************************************************
 		* checks if the memory requested exceeds current available memory
 		**********************************************************************/
-		else
-		{
+		else {
 			/******************************************************************
 			* inform user that the job doesn't have enough resources at the
 			* moment, add the job back to the list
 			******************************************************************/
 			print_insufficient_memory(fp, number);
-
 			enqueue(jobs, job);
 		}
+
 		job = get_next_job(mode, jobs);
 	}
 
