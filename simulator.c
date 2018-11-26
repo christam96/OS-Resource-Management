@@ -34,9 +34,6 @@ void simulator(char *filename)
 	d_linked_list_t *jobs = build_jobs_list(filename);
 	job_t *p;
 
-	printf("%s %s %s \n", memory, mode, quantum);
-
-
 	simulate(memory, mode, quantum, jobs);
 }
 
