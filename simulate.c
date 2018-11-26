@@ -68,6 +68,7 @@ void* run(void *j)
 		}
 	}
 	pthread_mutex_unlock(&lock);
+	printf("print if get here");
 	return NULL;
 	//pthread_mutex_unlock(&lock);
 }
