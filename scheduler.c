@@ -21,7 +21,7 @@ job_t *get_next_job(int mode, d_linked_list_t* jobs) {
 	if (mode == 0) {
 
 
-			j = (job_t*) dequeue(jobs[counter]);
+			j = (job_t*) dequeue(jobs);
 
 		/**
 		printf("Then mode is FCFS\n");
