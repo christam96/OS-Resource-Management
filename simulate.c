@@ -12,7 +12,7 @@
 int memory, max_memory, mode, time_quantum;
 FILE *fp;
 d_linked_list_t *jobs;
-pthread_mutex_t lock;
+pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 
 void* run(void *j)
 {
