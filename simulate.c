@@ -24,8 +24,7 @@ void* run(void *j)
 	int number, required_memory;
 	pthread_mutex_t lock;
 
-	while (job != NULL)
-	{
+	while (job != NULL) {
 		number = job->number;
 		required_memory = job->required_memory;
 
@@ -68,8 +67,11 @@ void* run(void *j)
 			break;
 		}
 	}
+	printf("print if get here1");
+
 	pthread_mutex_unlock(&lock);
-	printf("print if get here");
+	printf("print if get here2");
+	pthread_mutex_destroy(&lock);
 	return NULL;
 	//pthread_mutex_unlock(&lock);
 }
