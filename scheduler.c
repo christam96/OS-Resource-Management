@@ -11,8 +11,16 @@
 
 job_t *get_next_job(int mode, d_linked_list_t* jobs) {
 	job_t *j;
+
+	int jobNumber;
+
 	if (mode == 0) {
-		printf("Then mode is FCFS");
+		printf("Then mode is FCFS\n");
+		for (int i = 0; i < 6; i++) {
+			j = jobs[0];
+			jobNumber = j->number;
+			printf("%d \n", jobNumber);
+
 	}
 
 
