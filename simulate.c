@@ -60,6 +60,10 @@ void* run(void *j)
 		}
 
 		job = get_next_job(mode, jobs);
+		if (job == NULL) {
+			printf("next job is null, while loop should break");
+		}
+
 	}
 
 	printf("print if get here1");
