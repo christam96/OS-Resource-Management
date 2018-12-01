@@ -60,9 +60,6 @@ void* run(void *j)
 		}
 
 		job = get_next_job(mode, jobs);
-		if (job == NULL) {
-			printf("next job is null, while loop should break");
-		}
 
 	}
 
@@ -124,8 +121,6 @@ void simulate(int memory_value, int mode_value, int time_quantum_value,
 	**********************************************************************/
 	for (int i = 0; i < NUMBER_OF_THREADS; ++i)
 		pthread_join(threads[i], NULL);
-
-	printf("done jobs");
 }
 
 void execute_job(job_t *job) {
