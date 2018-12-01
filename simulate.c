@@ -124,14 +124,14 @@ void simulate(int memory_value, int mode_value, int time_quantum_value,
 }
 
 void execute_job(job_t *job) {
+	// LOCK CRITICAL REGION
+	pthread_mutex_lock(&lock);
 	int number = job->number,
 		required_memory = job->required_memory;
 
 	/******************************************************************
 	* inform user that the job started executing and allocate mrmory
 	******************************************************************/
-	// LOCK CRITICAL REGION
-	pthread_mutex_lock(&lock);
 	print_starting(fp, number);
 	allocate_memory(required_memory);
 	pthread_mutex_unlock(&lock);
