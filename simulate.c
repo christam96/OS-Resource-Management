@@ -66,10 +66,7 @@ void* run(void *j)
 
 	}
 
-	printf("print if get here1");
-
 	pthread_mutex_unlock(&lock);
-	printf("print if get here2");
 	// pthread_mutex_destroy(&lock);
 	return NULL;
 	//pthread_mutex_unlock(&lock);
