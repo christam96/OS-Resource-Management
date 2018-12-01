@@ -130,9 +130,9 @@ void execute_job(job_t *job) {
 	/******************************************************************
 	* inform user that the job started executing and allocate mrmory
 	******************************************************************/
-	print_starting(fp, number);
 	// LOCK CRITICAL REGION
 	pthread_mutex_lock(&lock);
+	print_starting(fp, number);
 	allocate_memory(required_memory);
 	pthread_mutex_unlock(&lock);
 
