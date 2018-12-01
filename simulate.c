@@ -25,7 +25,6 @@ void* run(void *j)
 	//pthread_mutex_t lock;
 
 	while (job != NULL) {
-		//pthread_mutex_lock(&lock);
 		number = job->number;
 		required_memory = job->required_memory;
 
@@ -61,8 +60,6 @@ void* run(void *j)
 		}
 
 		job = get_next_job(mode, jobs);
-		//pthread_mutex_unlock(&lock);
-
 	}
 
 	pthread_mutex_unlock(&lock);
