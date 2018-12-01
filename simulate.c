@@ -19,13 +19,13 @@ void* run(void *j)
 {
 	// Beginning of critical region!!!
 	// Since run() calls scheduler.c for the next job and then executes the specified job (memory permitting), we must lock this entire function in order for the CPU scheduling to work in the correct order specified by mode.
-	//pthread_mutex_lock(&lock);
+	pthread_mutex_lock(&lock);
 	job_t *job = get_next_job(mode, jobs);
 	int number, required_memory;
 	//pthread_mutex_t lock;
 
 	while (job != NULL) {
-		pthread_mutex_lock(&lock);
+		//pthread_mutex_lock(&lock);
 		number = job->number;
 		required_memory = job->required_memory;
 
@@ -61,11 +61,11 @@ void* run(void *j)
 		}
 
 		job = get_next_job(mode, jobs);
-		pthread_mutex_unlock(&lock);
+		//pthread_mutex_unlock(&lock);
 
 	}
 
-	//pthread_mutex_unlock(&lock);
+	pthread_mutex_unlock(&lock);
 	// pthread_mutex_destroy(&lock);
 	return NULL;
 	//pthread_mutex_unlock(&lock);
@@ -153,7 +153,7 @@ void execute_job(job_t *job) {
 	******************************************************************/
 
 	deallocate_memory(required_memory);
-	
+
 }
 
 void allocate_memory(int r) {
