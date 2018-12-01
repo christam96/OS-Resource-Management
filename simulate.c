@@ -22,7 +22,7 @@ void* run(void *j)
 	pthread_mutex_lock(&lock);
 	job_t *job = get_next_job(mode, jobs);
 	int number, required_memory;
-	pthread_mutex_t lock;
+	//pthread_mutex_t lock;
 
 	while (job != NULL) {
 		number = job->number;
@@ -70,7 +70,7 @@ void* run(void *j)
 
 	pthread_mutex_unlock(&lock);
 	printf("print if get here2");
-	pthread_mutex_destroy(&lock);
+	// pthread_mutex_destroy(&lock);
 	return NULL;
 	//pthread_mutex_unlock(&lock);
 }
