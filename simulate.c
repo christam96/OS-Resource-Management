@@ -59,7 +59,7 @@ void* run(void *j)
 			print_insufficient_memory(fp, number);
 			enqueue(jobs, job);
 		}
-		pthread_mutex_unlock(&lock)
+		pthread_mutex_unlock(&lock);
 		pthread_mutex_lock(&lock);
 		job = get_next_job(mode, jobs);
 		pthread_mutex_unlock(&lock);
