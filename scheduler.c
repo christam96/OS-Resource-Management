@@ -34,9 +34,10 @@ job_t *get_next_job(int mode, d_linked_list_t* jobs) {
 				tempJob1 = tempJob2;
 			}
 		}
+		j = tempJob1;
 	}
 
-	
+
 
 
 
