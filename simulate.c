@@ -64,10 +64,7 @@ void* run(void *j)
 		pthread_mutex_unlock(&lock);
 	}
 
-	// pthread_mutex_unlock(&lock);
-	// pthread_mutex_destroy(&lock);
 	return NULL;
-	//pthread_mutex_unlock(&lock);
 }
 
 /******************************************************************************
