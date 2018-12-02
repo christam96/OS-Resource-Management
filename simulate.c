@@ -131,9 +131,10 @@ void execute_job(job_t *job) {
 	* inform user that the job started executing and allocate mrmory
 	******************************************************************/
 	print_starting(fp, number);
-	pthread_mutex_lock(&lock);
+
+	//pthread_mutex_lock(&lock);
 	allocate_memory(required_memory);
-	pthread_mutex_unlock(&lock);
+	//pthread_mutex_unlock(&lock);
 
 
 	/******************************************************************
@@ -150,9 +151,9 @@ void execute_job(job_t *job) {
 	/******************************************************************
 	* deallocate memory
 	******************************************************************/
-	pthread_mutex_lock(&lock);
+	//pthread_mutex_lock(&lock);
 	deallocate_memory(required_memory);
-	pthread_mutex_unlock(&lock);
+	//pthread_mutex_unlock(&lock);
 
 }
 
