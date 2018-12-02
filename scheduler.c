@@ -29,7 +29,7 @@ job_t *get_next_job(int mode, d_linked_list_t* jobs) {
 		tempJob1 = (job_t*) dequeue(jobs);
 		for (int i=0; i<jobs->size; i++) {
 			tempJob2 = (job_t*) dequeue(jobs);
-			if (tempJob2->required_time < tempJob1 ) {
+			if (tempJob2->required_time < tempJob1->required_time ) {
 				enqueue(jobs, tempJob1);
 				tempJob1 = tempJob2;
 			}
