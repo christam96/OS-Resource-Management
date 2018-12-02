@@ -11,7 +11,7 @@
 
 job_t *get_next_job(int mode, d_linked_list_t* jobs) {
 	job_t *j;
-	job_t *tempJob1, tempJob2;
+	job_t *tempJob1, *tempJob2;
 
 	// Mode 0: First Come First Serve (FCFS)
 	//
