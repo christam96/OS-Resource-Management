@@ -141,7 +141,7 @@ void execute_job(job_t *job) {
 	* run the job
 	******************************************************************/
 	if (mode == 3) {
-		sleep(job->time_quantum);
+		sleep(time_quantum);
 		enqueue(jobs, job);
 
 	} else {
