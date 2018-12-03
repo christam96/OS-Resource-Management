@@ -17,8 +17,10 @@ pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
 
 void* run(void *j)
 {
-	// Beginning of critical region!!!
-	// Since run() calls scheduler.c for the next job and then executes the specified job (memory permitting), we must lock this entire function in order for the CPU scheduling to work in the correct order specified by mode.
+	/**************************************************************************
+	* Beginning of critical region!!!
+	* Since run() calls scheduler.c for the next job and then executes the specified job (memory permitting), we must lock this entire function in order for the CPU scheduling to work in the correct order specified by mode.
+	**************************************************************************/
 	pthread_mutex_lock(&lock);
 	job_t *job = get_next_job(mode, jobs);
 	pthread_mutex_unlock(&lock);
@@ -59,7 +61,7 @@ void* run(void *j)
 			print_insufficient_memory(fp, number);
 			enqueue(jobs, job);
 		}
-		//pthread_mutex_unlock(&lock);
+		// Critical region!!!
 		pthread_mutex_lock(&lock);
 		job = get_next_job(mode, jobs);
 		pthread_mutex_unlock(&lock);
@@ -139,6 +141,9 @@ void execute_job(job_t *job) {
 
 	/******************************************************************
 	* run the job
+	* Implementation of RR in 'if' statement:
+	* Execute the job process for the duration of the time quantum. If the job process finishes within its allocated time, fine. If the job process needs more time, subtract the time quantum from the jobs required time and enqueue it back into the jobs list.
+	* All other scheduling methods resolve to 'else' statement.
 	******************************************************************/
 	if (mode == 3) {
 		sleep(time_quantum);
@@ -153,6 +158,8 @@ void execute_job(job_t *job) {
 
 	/******************************************************************
 	* inform user that the job finished executing
+	* Implementation of RR in 'if' statement:
+	* All jobs who finish during some time quantum period come here. Check to make sure that it is done and if so, inform user that job finished executing.
 	******************************************************************/
 	if (mode == 3) {
 		if (job->required_time < 1) {
@@ -163,8 +170,7 @@ void execute_job(job_t *job) {
 		print_completed(fp, number);
 		free(job);
 	}
-	//print_completed(fp, number);
-	//free(job);
+
 
 	/******************************************************************
 	* deallocate memory
