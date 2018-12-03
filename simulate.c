@@ -25,7 +25,7 @@ void* run(void *j)
 	job_t *job = get_next_job(mode, jobs);
 	//pthread_mutex_unlock(&lock);
 	int number, required_memory;
-	//pthread_mutex_t lock;
+	pthread_mutex_t lock;
 
 	while (job != NULL) {
 		number = job->number;
@@ -62,7 +62,7 @@ void* run(void *j)
 			enqueue(jobs, job);
 		}
 		// Critical region!!!
-		//pthread_mutex_lock(&lock);
+		pthread_mutex_lock(&lock);
 		job = get_next_job(mode, jobs);
 		pthread_mutex_unlock(&lock);
 	}
