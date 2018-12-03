@@ -144,18 +144,25 @@ void execute_job(job_t *job) {
 		sleep(time_quantum);
 		job->required_time = job->required_time - time_quantum;
 		enqueue(jobs, job);
-
 	} else {
 		sleep(job->required_time);
 	}
 
 
-
 	/******************************************************************
 	* inform user that the job finished executing
 	******************************************************************/
-	print_completed(fp, number);
-	free(job);
+	if (mode == 3) {
+		if (job->required_time == 0) {
+			print_completed(fp, number);
+			free(job);
+		}
+	} else {
+		print_completed(fp, number);
+		free(job);
+	}
+	//print_completed(fp, number);
+	//free(job);
 
 	/******************************************************************
 	* deallocate memory
