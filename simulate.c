@@ -143,7 +143,9 @@ void execute_job(job_t *job) {
 	if (mode == 3) {
 		sleep(time_quantum);
 		job->required_time = job->required_time - time_quantum;
-		enqueue(jobs, job);
+		if (job->required_time > 0) {
+			enqueue(jobs, job);
+		}
 	} else {
 		sleep(job->required_time);
 	}
