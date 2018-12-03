@@ -155,7 +155,7 @@ void execute_job(job_t *job) {
 	* inform user that the job finished executing
 	******************************************************************/
 	if (mode == 3) {
-		if (job->required_time <= 0) {
+		if (job->required_time < 1) {
 			print_completed(fp, number);
 			free(job);
 		}
