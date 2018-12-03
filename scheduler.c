@@ -44,6 +44,9 @@ job_t *get_next_job(int mode, d_linked_list_t* jobs) {
 	// Mode 3: Round Robin (RR)
 	if (mode == 3) {
 		j = (job_t*) dequeue(jobs);
+		if (j == NULL) {
+			break;
+		}
 	}
 
 
