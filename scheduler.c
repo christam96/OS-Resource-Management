@@ -38,6 +38,7 @@ job_t *get_next_job(int mode, d_linked_list_t* jobs) {
 			} else {
 				printf("temp2 > temp1 time\n");
 			}
+			counter++;
 		}
 		/**
 		for (int i=0; i<jobs->size; i++) {
