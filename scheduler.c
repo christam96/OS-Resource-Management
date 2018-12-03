@@ -31,10 +31,10 @@ job_t *get_next_job(int mode, d_linked_list_t* jobs) {
 		while (counter < jobs->size) {
 			printf("size: %d \n", jobs->size);
 			tempJob2 = (job_t*) dequeue(jobs);
-			if (tempJob2->required_time < tempJob1->required_time ) {
+			if (tempJob2->required_time < tempJob1->required_time) {
 				printf("temp2 time < temp1 time\n");
 				enqueue(jobs, tempJob1);
-				tempJob1 = tempJob2;
+				tempJob1 = &tempJob2;
 			} else {
 				printf("temp2 > temp1 time\n");
 			}
