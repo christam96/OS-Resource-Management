@@ -140,7 +140,15 @@ void execute_job(job_t *job) {
 	/******************************************************************
 	* run the job
 	******************************************************************/
-	sleep(job->required_time);
+	if (mode == 3) {
+		sleep(job->time_quantum);
+		enqueue(jobs, job);
+
+	} else {
+		sleep(job->required_time);
+	}
+
+
 
 	/******************************************************************
 	* inform user that the job finished executing
